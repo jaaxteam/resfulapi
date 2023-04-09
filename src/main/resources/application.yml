@@ -1,0 +1,59 @@
+server:
+  port: 8085
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/restfulapi
+    username: jaax
+  jpa:
+    database: POSTGRESQL
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/restfulapi_qa
+    username: jaax
+  jpa:
+    database: POSTGRESQL
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/restfulapi_prod
+    username: jaax
+  jpa:
+    database: POSTGRESQL
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      platform: postgres
